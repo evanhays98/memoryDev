@@ -1,36 +1,22 @@
 {
-  "short_name": "Keewe",
-  "name": "Keewe",
+  "short_name": "MemoDev",
+  "name": "Memory Dev",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "256x256",
+      "src": "memoryDev.ico",
+      "sizes": "192x192",
       "type": "image/x-icon"
     },
     {
-      "src": "favicon.png",
-      "sizes": "256x256",
-      "type": "image/png"
-    },
-    {
-      "src": "favicon.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    },
-    {
-      "src": "favicon.png",
-      "sizes": "1024x1024",
-      "type": "image/png"
-    },
-    {
-      "src": "favicon.png",
-      "sizes": "2048x2048",
-      "type": "image/png"
-    },
-    {
-      "src": "favicon.png",
+      "src": "memoryDev_192.png",
+      "sizes": "192x192",
       "type": "image/png",
-      "sizes": "884x885",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "memoryDev_512.png",
+      "sizes": "512x512",
+      "type": "image/png",
       "purpose": "any maskable"
     }
   ],

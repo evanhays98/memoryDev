@@ -111,7 +111,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .markdown {
 
-  padding: 20px;
+  width: 100%;
 
   h1, h2, h3, h4, h5, h6 {
     font-family: $Montserrat;
@@ -232,8 +232,14 @@ h1, h2, h3, h4, h5, h6 {
   /* Code blocks */
   pre {
     border-radius: 5px;
-    overflow-x: auto;
+    width: 100%;
     background: rgba(52, 152, 219, 0.05) !important;
+    font-size: 13px;
+    overflow: hidden !important;
+
+    @media (max-width: 990px) {
+      font-size: 11px;
+    }
   }
 
   code {
@@ -242,6 +248,14 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 15px;
     font-weight: 500;
     line-height: 1.5;
+    white-space: pre-wrap !important; /* CSS3 */
+    word-wrap: break-word !important; /* Internet Explorer 5.5+ */
+    width: 100%;
+    overflow-wrap: break-word; /* Ajouté */
+
+    @media (max-width: 990px) {
+      font-size: 13px;
+    }
   }
 
   /* Tables */

@@ -1,22 +1,18 @@
-
-Je comprends, vous voulez que chaque section soit correctement structurée avec des titres de niveaux appropriés dans le Markdown. Voici le contenu révisé pour un fichier Markdown avec des sections bien définies :
-
-markdown
-Copy code
 # Résumé Complet de Python
 
 ## Concepts de Base
 
 ### Variables et Types de Données
+
 - **Types de données de base :**
-  - `int` : entier
-  - `float` : nombre à virgule flottante
-  - `str` : chaîne de caractères
-  - `bool` : booléen (True/False)
-  - `list` : liste
-  - `tuple` : tuple (immuable)
-  - `dict` : dictionnaire
-  - `set` : ensemble
+    - `int` : entier
+    - `float` : nombre à virgule flottante
+    - `str` : chaîne de caractères
+    - `bool` : booléen (True/False)
+    - `list` : liste
+    - `tuple` : tuple (immuable)
+    - `dict` : dictionnaire
+    - `set` : ensemble
 
 ```python
 x = 5          # int
@@ -32,6 +28,7 @@ unique = {1, 2, 3} # set
 ## Structures de Contrôle
 
 ### Conditionnelles
+
 - Instructions conditionnelles : if, elif, else
 
 ```python
@@ -62,6 +59,7 @@ while x > 0:
 ### Définir des Fonctions
 
 - Création et appel de fonctions :
+
 ```python
 def greet(name):
     return f"Hello, {name}!"
@@ -70,15 +68,16 @@ print(greet("Alice"))  # Output: Hello, Alice!
 ```
 
 ## Fonctions Natives Utiles
+
 - **Fonctions couramment utilisées :**
-  - `len()` : obtenir la longueur d'un objet
-  - `range()` : générer une séquence de nombres
-  - `print()` : afficher des données
-  - `type()` : obtenir le type d'une variable
-  - `int()`, `float()`, `str()` : conversion de types
-  - `input()` : lire l'entrée de l'utilisateur
-  - `open()` : ouvrir des fichier
-  
+    - `len()` : obtenir la longueur d'un objet
+    - `range()` : générer une séquence de nombres
+    - `print()` : afficher des données
+    - `type()` : obtenir le type d'une variable
+    - `int()`, `float()`, `str()` : conversion de types
+    - `input()` : lire l'entrée de l'utilisateur
+    - `open()` : ouvrir des fichier
+
 ```python
 lst = [1, 2, 3]
 print(len(lst))  # Output: 3
@@ -113,7 +112,9 @@ numbers.sort()     # Trie la liste
 ```
 
 ### Dictionnaires
+
 - Création, accès et manipulation :
+
 ```python
 student = {'name': 'Alice', 'age': 25}
 print(student['name'])  # Output: Alice
@@ -126,7 +127,9 @@ values = student.values()  # Retourne les valeurs
 ```
 
 ### Ensembles
+
 - Création et opérations :
+
 ```
 a = {1, 2, 3}
 b = {3, 4, 5}
@@ -151,6 +154,7 @@ with open('file.txt', 'r') as f:
 ## Programmation Orientée Objet (POO)
 
 ### Classes et Objets
+
 ```python
 class Person:
     def __init__(self, name, age):
@@ -194,6 +198,7 @@ print(squares)  # Output: [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 ```
 
 ### Compréhensions de Dictionnaire
+
 ```python
 square_dict = {x: x**2 for x in range(10)}
 print(square_dict)  # Output: {0: 0, 1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64, 9: 81}
@@ -221,6 +226,7 @@ print(mymodule.greet("Alice"))  # Output: Hello, Alice!
 ```
 
 ## Gestion des Exceptions
+
 ```python
 try:
     result = 10 / 0

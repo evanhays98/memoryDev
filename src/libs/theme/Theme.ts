@@ -1,7 +1,7 @@
 const basicColors = {
   background: '#fff',
   blueGradiant: `-webkit-linear-gradient(100deg, ${'#1b5160'} 0%, ${'#3394ae'} 100%)`,
-  blueLightGradiant: `-webkit-linear-gradient(100deg, ${'#5a92a1'} 0%, ${'#57c2e0'} 100%)`,
+  blueLightGradiant: `-webkit-linear-gradient(100deg, ${'rgba(90,146,161,0.5)'} 0%, ${'rgba(87,194,224,0.5)'} 100%)`,
   blue: '#22778e',
   black: '#1a1d1f',
   red: '#e05767',

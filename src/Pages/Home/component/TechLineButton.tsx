@@ -2,6 +2,8 @@ import React from 'react';
 import { createUseStyles } from 'react-jss';
 import { ColorsString, Theme, theme } from 'src/libs/theme';
 import { Icon, Icons } from '../../../libs/core';
+import { TechEnum } from '../../../libs/enums';
+import { useNavigate } from 'react-router-dom';
 
 const useStyles = createUseStyles<string, {}, any>((theme: Theme) => ({
   container: {
@@ -15,6 +17,14 @@ const useStyles = createUseStyles<string, {}, any>((theme: Theme) => ({
     padding: theme.marginBase,
     border: `1px solid ${theme.colors.blue}90`,
     borderRadius: theme.borderRadius.std,
+    cursor: 'pointer',
+    background: theme.colors.transparent,
+    transition: 'all .3s ease-in-out',
+
+    '&:hover': {
+      background: theme.colors.blueLightGradiant,
+      transition: 'all .2s ease-in-out',
+    },
   },
   amountContainer: {
     display: 'flex',
@@ -41,13 +51,18 @@ const useStyles = createUseStyles<string, {}, any>((theme: Theme) => ({
 interface Props {
   icon: Icon;
   title: string;
+  tech: TechEnum;
 }
 
-export const ConversionHistoryLine = ({ icon, title }: Props) => {
+export const TechLineButton = ({ icon, title, tech }: Props) => {
   const classes = useStyles({ theme });
+  const navigate = useNavigate();
 
   return (
-    <div className={classes.container}>
+    <div
+      className={classes.container}
+      onClick={() => navigate('/' + tech.toString())}
+    >
       <Icons icon={icon} color={ColorsString.blue} />
       <p className={classes.label}>{title}</p>
     </div>
