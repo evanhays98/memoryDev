@@ -3,12 +3,14 @@
 ## Concepts de Base
 
 ### Introduction à Vue.js
+
 - **Vue.js** est un framework JavaScript pour créer des interfaces utilisateur et des applications monopage (SPA).
 - Utilise des composants pour construire des interfaces dynamiques et réactives.
 
 ## Configuration de l'Environnement
 
 ### Création d'un Projet Vue.js
+
 - **Utilisation de Vue CLI** : un outil pour initialiser et configurer des projets Vue.js.
 
 ```bash
@@ -21,9 +23,12 @@ npm run serve
 ## Composants
 
 ### Composants Vue.js
-- **Définition** : les composants Vue.js sont des objets JavaScript avec des propriétés spéciales comme `data`, `methods`, et `computed`.
+
+- **Définition** : les composants Vue.js sont des objets JavaScript avec des propriétés spéciales
+  comme `data`, `methods`, et `computed`.
 
 ```vue
+
 <template>
   <div>
     <h1>Hello, {{ name }}!</h1>
@@ -31,151 +36,162 @@ npm run serve
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      name: 'Alice'
-    };
-  }
-};
+  export default {
+    data() {
+      return {
+        name: 'Alice'
+      };
+    }
+  };
 </script>
 
 <style scoped>
-/* Styles spécifiques au composant */
+  /* Styles spécifiques au composant */
 </style>
 ```
 
 ## Directives
 
 ### Directives Vue.js
+
 - **Utilisation des directives** comme `v-bind`, `v-model`, `v-for`, `v-if`, etc.
 
 ```vue
+
 <template>
   <div>
     <!-- Lier les attributs -->
-    <img v-bind:src="imageSrc" alt="Vue logo" />
+    <img v-bind:src='imageSrc' alt='Vue logo' />
 
     <!-- Data Binding -->
-    <input v-model="message" />
+    <input v-model='message' />
 
     <!-- Boucle sur un tableau -->
     <ul>
-      <li v-for="item in items" :key="item.id">{{ item.text }}</li>
+      <li v-for='item in items' :key='item.id'>{{ item.text }}</li>
     </ul>
 
     <!-- Conditionnel -->
-    <p v-if="isVisible">This is visible</p>
+    <p v-if='isVisible'>This is visible</p>
   </div>
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      imageSrc: 'logo.png',
-      message: '',
-      items: [{ id: 1, text: 'Item 1' }, { id: 2, text: 'Item 2' }],
-      isVisible: true
-    };
-  }
-};
+  export default {
+    data() {
+      return {
+        imageSrc: 'logo.png',
+        message: '',
+        items: [{ id: 1, text: 'Item 1' }, { id: 2, text: 'Item 2' }],
+        isVisible: true
+      };
+    }
+  };
 </script>
 ```
 
 ## Événements
 
 ### Gestion des Événements
+
 - **Attacher des événements** avec `v-on` ou la syntaxe abrégée `@`.
 
-```vue
+```html
+
 <template>
-  <button @click="handleClick">Click me</button>
+  <button @click='handleClick'>Click me</button>
 </template>
 
 <script>
-export default {
-  methods: {
-    handleClick() {
-      alert('Button clicked');
+  export default {
+    methods: {
+      handleClick() {
+        alert('Button clicked');
+      }
     }
-  }
-};
+  };
 </script>
 ```
 
 ## Props et État
 
 ### Props
+
 - **Définition** : les props permettent de passer des données d'un composant parent à un composant enfant.
 
-```vue
+```html
+
 <template>
-  <ChildComponent :message="parentMessage" />
+  <ChildComponent :message='parentMessage' />
 </template>
 
 <script>
-import ChildComponent from './ChildComponent.vue';
+  import ChildComponent from './ChildComponent.vue';
 
-export default {
-  components: {
-    ChildComponent
-  },
-  data() {
-    return {
-      parentMessage: 'Hello from parent'
-    };
-  }
-};
+  export default {
+    components: {
+      ChildComponent
+    },
+    data() {
+      return {
+        parentMessage: 'Hello from parent'
+      };
+    }
+  };
 </script>
 ```
 
-```vue
+```html
 <!-- ChildComponent.vue -->
 <template>
   <div>{{ message }}</div>
 </template>
 
 <script>
-export default {
-  props: ['message']
-};
+  export default {
+    props: ['message']
+  };
 </script>
 ```
 
 ### État
+
 - **Utilisation de `data` pour définir l'état local d'un composant.**
 
-```vue
+```html
+
 <template>
   <div>
     <p>{{ count }}</p>
-    <button @click="increment">Increment</button>
+    <button @click='increment'>Increment</button>
   </div>
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      count: 0
-    };
-  },
-  methods: {
-    increment() {
-      this.count++;
+  export default {
+    data() {
+      return {
+        count: 0
+      };
+    },
+    methods: {
+      increment() {
+        this.count++;
+      }
     }
-  }
-};
+  };
 </script>
 ```
 
 ## Computed et Watchers
 
 ### Computed Properties
-- **Définition** : les propriétés calculées sont des données dérivées qui sont mises en cache en fonction des dépendances.
 
-```vue
+- **Définition** : les propriétés calculées sont des données dérivées qui sont mises en cache en fonction des
+  dépendances.
+
+```html
+
 <template>
   <div>
     <p>Original: {{ message }}</p>
@@ -184,48 +200,51 @@ export default {
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      message: 'Hello'
-    };
-  },
-  computed: {
-    reversedMessage() {
-      return this.message.split('').reverse().join('');
+  export default {
+    data() {
+      return {
+        message: 'Hello'
+      };
+    },
+    computed: {
+      reversedMessage() {
+        return this.message.split('').reverse().join('');
+      }
     }
-  }
-};
+  };
 </script>
 ```
 
 ### Watchers
+
 - **Définition** : les watchers surveillent les changements dans les données et exécutent des actions en réponse.
 
-```vue
+```html
+
 <template>
-  <input v-model="query" placeholder="Type something..." />
+  <input v-model='query' placeholder='Type something...' />
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      query: ''
-    };
-  },
-  watch: {
-    query(newValue, oldValue) {
-      console.log(`Query changed from ${oldValue} to ${newValue}`);
+  export default {
+    data() {
+      return {
+        query: ''
+      };
+    },
+    watch: {
+      query(newValue, oldValue) {
+        console.log(`Query changed from ${oldValue} to ${newValue}`);
+      }
     }
-  }
-};
+  };
 </script>
 ```
 
 ## Vue Router
 
 ### Utilisation de Vue Router
+
 - **Installation et configuration** :
 
 ```bash
@@ -250,26 +269,27 @@ export default new Router({
 });
 ```
 
-```vue
+```html
 <!-- App.vue -->
 <template>
-  <div id="app">
-    <router-link to="/">Home</router-link>
-    <router-link to="/about">About</router-link>
+  <div id='app'>
+    <router-link to='/'>Home</router-link>
+    <router-link to='/about'>About</router-link>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'App'
-};
+  export default {
+    name: 'App'
+  };
 </script>
 ```
 
 ## Vuex
 
 ### Utilisation de Vuex
+
 - **Installation et configuration de Vuex pour la gestion d'état global** :
 
 ```bash
@@ -301,26 +321,26 @@ export default new Vuex.Store({
 });
 ```
 
-```vue
+```html
 <!-- Exemple de composant utilisant Vuex -->
 <template>
   <div>
     <p>Count: {{ count }}</p>
-    <button @click="increment">Increment</button>
+    <button @click='increment'>Increment</button>
   </div>
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
+  import { mapState, mapActions } from 'vuex';
 
-export default {
-  computed: {
-    ...mapState(['count'])
-  },
-  methods: {
-    ...mapActions(['increment'])
-  }
-};
+  export default {
+    computed: {
+      ...mapState(['count'])
+    },
+    methods: {
+      ...mapActions(['increment'])
+    }
+  };
 </script>
 ```
 
