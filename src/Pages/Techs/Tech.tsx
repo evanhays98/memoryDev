@@ -28,7 +28,7 @@ const useStyles = createUseStyles<string, {}, any>((theme: Theme) => ({
     margin: '0 auto',
 
     '@media (max-width: 768px)': {
-      padding: theme.marginBase,
+      padding: theme.marginBase * 2,
     },
   },
 }));
@@ -42,7 +42,7 @@ export const Tech = () => {
   useEffect(() => {
     const file = tech_data_file[tech];
     console.log(file);
-    fetch('/Data/' + file)
+    fetch('https://evanhays98.github.io/memoryDev/Data/' + file)
       .then((response) => response.text())
       .then((data) => {
         setContent(data);
