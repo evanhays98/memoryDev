@@ -169,7 +169,7 @@ def add_author(request):
 <body>
 <h1>Add Author</h1>
 <form method='post'>
-  { csrf_tokenn }
+  { csrf_token }
   {{ form.as_p }}
   <button type='submit'>Save</button>
 </form>
