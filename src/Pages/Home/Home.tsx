@@ -68,7 +68,7 @@ export const Home = () => {
           <TechLineButton
             icon={Icon.typescript}
             title="Typescript"
-            tech={TechEnum.JAVASCRIPT}
+            tech={TechEnum.TYPESCRIPT}
           />
           <TechLineButton
             icon={Icon.python}
