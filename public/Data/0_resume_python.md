@@ -76,7 +76,7 @@ print(greet("Alice"))  # Output: Hello, Alice!
     - `type()` : obtenir le type d'une variable
     - `int()`, `float()`, `str()` : conversion de types
     - `input()` : lire l'entrée de l'utilisateur
-    - `open()` : ouvrir des fichier
+    - `open()` : ouvrir des fichiers
 
 ```python
 lst = [1, 2, 3]
@@ -130,7 +130,7 @@ values = student.values()  # Retourne les valeurs
 
 - Création et opérations :
 
-```
+```python
 a = {1, 2, 3}
 b = {3, 4, 5}
 print(a | b)  # Union: {1, 2, 3, 4, 5}
@@ -138,11 +138,45 @@ print(a & b)  # Intersection: {3}
 print(a - b)  # Différence: {1, 2}
 ```
 
+### Slicing
+
+- Accès à des sous-ensembles de séquences :
+
+### Syntaxe Générale
+
+```python
+sequence[start:stop:step]
+```
+
+- start : indice de début (inclus)
+- stop : indice de fin (exclus)
+- step : pas (par défaut 1)
+
+Lorsque vous utilisez list[::3], vous omettez les indices de début et de fin
+
+```python
+# Liste de démonstration
+my_list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+# Slicing de base
+print(my_list[2:5])  # Output: [2, 3, 4]
+
+# Slicing avec des pas
+print(my_list[::2])  # Output: [0, 2, 4, 6, 8]
+print(my_list[1::3]) # Output: [1, 4, 7]
+
+# Slicing avec pas négatif
+print(my_list[::-1]) # Output: [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+
+# Slicing avec début et fin spécifiés
+print(my_list[1:8:2]) # Output: [1, 3, 5, 7]
+```
+
 ## Gestion des Fichiers
 
 ### Lecture et Écriture de Fichiers
 
-```
+```python
 with open('file.txt', 'w') as f:
     f.write("Hello, world!")
 
