@@ -5,6 +5,7 @@ const basicColors = {
   blue: '#22778e',
   black: '#1a1d1f',
   red: '#e05767',
+  redLight: 'rgba(213,71,88,0.5)',
   midNightBlue: '#0c1842',
   blueHover: '#08262e',
   lightGray: '#2d3134',
@@ -26,6 +27,7 @@ export const ColorsString = {
   transparent: 'transparent' as Colors,
   blueGradiant: 'blueGradiant' as Colors,
   blueLightGradiant: 'blueLightGradiant' as Colors,
+  redLight: 'redLight' as Colors,
 };
 
 export const theme = {

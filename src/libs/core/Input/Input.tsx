@@ -85,6 +85,7 @@ const useStyles = createUseStyles<string, {}, any>((theme: Theme) => ({
     padding: theme.marginBase,
     height: 'fit-content',
     border: 'none',
+
     '&::-webkit-resizer': {
       display: 'none',
       zIndex: 2,
@@ -142,6 +143,8 @@ interface Input1Props {
   rows?: number;
   autoSize?: boolean;
   reset?: boolean;
+  onChange?: (e: any) => void;
+  error?: string;
 }
 
 const useAutosizeTextArea = (
@@ -160,33 +163,41 @@ const useAutosizeTextArea = (
 };
 
 export const Input = ({
-                        title,
-                        type = 'text',
-                        name,
-                        value,
-                        maxLength = 100,
-                        eye,
-                        textarea,
-                        className,
-                        autoSize,
-                        reset,
-                        rows = autoSize ? 1 : 3,
-                      }: Input1Props) => {
+  title,
+  type = 'text',
+  name,
+  value,
+  maxLength = 100,
+  eye,
+  textarea,
+  className,
+  autoSize,
+  reset,
+  onChange,
+  error,
+  rows = autoSize ? 1 : 3,
+}: Input1Props) => {
   const formik = useFormikContext<any>();
-  const [val, setVal] = useState(formik.values[name] || value || '');
+  const [val, setVal] = useState(formik?.values[name] || value || '');
   const classes = useStyles({ theme });
   const [_type, setType] = useState(type);
   const ref = React.useRef<HTMLTextAreaElement>(null);
   useAutosizeTextArea(ref.current, val, !!textarea, !autoSize);
 
   useEffect(() => {
-    if (reset) {
-      setVal(formik.values[name] || value || '');
+    if (reset !== undefined) {
+      setVal(formik?.values[name] || value || '');
     }
     // eslint-disable-next-line
   }, [reset]);
 
   const handleValue = (e: any) => {
+    if (onChange) {
+      setVal(e.value);
+      onChange(e);
+      return;
+    }
+
     setVal(e.value);
     formik.setFieldValue(name, e.value);
   };
@@ -195,20 +206,17 @@ export const Input = ({
     <div className={classes.container}>
       <div className={classes.inputContainer}>
         {textarea ? (
-          <div className={classes.textAreaContainer}>
-            <div className={classes.textAreaHolder} />
-            <textarea
-              ref={ref}
-              rows={rows}
-              className={classnames(classnames(classes.textarea, className))}
-              name={name}
-              maxLength={maxLength}
-              value={val}
-              onChange={(e) => {
-                handleValue(e.target);
-              }}
-            />
-          </div>
+          <textarea
+            className={classnames(classes.textarea, className)}
+            ref={ref}
+            rows={rows}
+            name={name}
+            maxLength={maxLength}
+            value={val}
+            onChange={(e) => {
+              handleValue(e.target);
+            }}
+          />
         ) : (
           <input
             className={classnames(classes.input)}
@@ -239,9 +247,10 @@ export const Input = ({
           </div>
         )}
       </div>
-      {formik.touched[name] && formik.errors[name] ? (
+      {formik && formik.touched[name] && formik.errors[name] ? (
         <div className={classes.error}>{formik.errors[name]?.toString()}</div>
       ) : null}
+      {error?.length ? <div className={classes.error}>{error}</div> : null}
     </div>
   );
 };

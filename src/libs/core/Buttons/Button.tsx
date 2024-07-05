@@ -2,6 +2,7 @@ import classnames from 'classnames';
 import React from 'react';
 import { createUseStyles } from 'react-jss';
 import { theme, Theme } from '../../theme';
+import { Icon, Icons } from '../Icons';
 
 const useStyles = createUseStyles<string, {}, any>((theme: Theme) => ({
   blockColor: {
@@ -47,6 +48,7 @@ interface BaseButtonProps {
   type?: 'button' | 'submit' | 'reset';
   full?: boolean;
   line?: boolean;
+  icon?: Icon;
 }
 
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
@@ -85,6 +87,7 @@ export const Button = (props: BaseButtonProps & GenericButtonProps) => {
     >
       {props.children}
       {props.text && props.text}
+      {props.icon && <Icons icon={props.icon} className={iconClassName} />}
     </button>
   );
 };
