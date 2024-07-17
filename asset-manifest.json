@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/memoryDev/static/css/main.c386f46f.css",
-    "main.js": "/memoryDev/static/js/main.a7f21b3c.js",
+    "main.js": "/memoryDev/static/js/main.08af9731.js",
     "index.html": "/memoryDev/index.html",
     "main.c386f46f.css.map": "/memoryDev/static/css/main.c386f46f.css.map",
-    "main.a7f21b3c.js.map": "/memoryDev/static/js/main.a7f21b3c.js.map"
+    "main.08af9731.js.map": "/memoryDev/static/js/main.08af9731.js.map"
   },
   "entrypoints": [
     "static/css/main.c386f46f.css",
-    "static/js/main.a7f21b3c.js"
+    "static/js/main.08af9731.js"
   ]
 }
